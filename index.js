@@ -7,13 +7,14 @@ const { client, seedData, createTable } = require("./database/db");
 let cache = apicache.middleware;
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["https://zenkai-anime.vercel.app", "http://localhost:5173"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: "Content-Type,Authorization",
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: ["https://zenkai-anime.vercel.app", "http://localhost:5173"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: "Content-Type,Authorization",
+//   })
+// );
 const init = async () => {
   try {
     await client.connect();
